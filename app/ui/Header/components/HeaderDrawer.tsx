@@ -109,7 +109,7 @@ export const HeaderDrawer: FC<HeaderDrawerProps> = ({ drawerOpen, toggleDrawer }
 
         <button
           onClick={handleOrderClick}
-          className="mt-8 w-full rounded-lg bg-[#3198ff] px-6 py-3 text-base text-white transition-colors hover:bg-[#1d80e2]"
+          className="mt-8 w-full rounded-xl bg-[#3198ff] px-6 py-3 text-base text-white transition-colors hover:bg-[#1d80e2]"
         >
           Быстрый заказ
         </button>

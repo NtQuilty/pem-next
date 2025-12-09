@@ -53,7 +53,7 @@ export const FAQ: React.FC = () => {
               </span>
               <button
                 onClick={() => openOrderForm('consultation')}
-                className="btn-text md:btn-text-lg group relative w-full rounded-md bg-[#3198FF] px-6 py-3 text-white transition-colors hover:bg-[#2980e6] md:w-auto md:px-12"
+                className="btn-text md:btn-text-lg group relative w-full rounded-xl bg-[#3198FF] px-6 py-3 text-white transition-colors hover:bg-[#2980e6] md:w-auto md:px-12"
               >
                 Задать вопрос
               </button>

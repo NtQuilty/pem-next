@@ -60,7 +60,7 @@ export const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onCl
             ) : (
               <button
                 onClick={handleCookieClick}
-                className="group/btn ml-4 mt-2 inline-flex items-center gap-2 rounded-lg bg-[#3198ff] px-4 py-2 text-sm text-white transition-all duration-300 hover:bg-[#1d80e2] hover:shadow-lg"
+                className="group/btn ml-4 mt-2 inline-flex items-center gap-2 rounded-xl bg-[#3198ff] px-4 py-2 text-sm text-white transition-all duration-300 hover:bg-[#1d80e2] hover:shadow-lg"
               >
                 Ознакомиться
                 <svg 

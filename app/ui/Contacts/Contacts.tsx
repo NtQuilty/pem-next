@@ -93,7 +93,7 @@ export const Contacts: React.FC = () => {
                   href="https://t.me/nrgmru"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-lg bg-[#1b1e29] px-4 py-2 text-white transition-colors hover:bg-[#252a39]"
+                  className="inline-flex items-center justify-center rounded-xl bg-[#1b1e29] px-4 py-2 text-white transition-colors hover:bg-[#252a39]"
                 >
                   <FaTelegram className="mr-2" /> Telegram
                 </Link>

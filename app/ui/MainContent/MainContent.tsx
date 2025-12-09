@@ -18,7 +18,7 @@ export const MainContent = ({ isHomePage = true }: { isHomePage?: boolean }) => 
         {servicesData.map((service, index) => (
           <div
             key={service.id}
-            className="mb-10 min-h-[500px] rounded-3xl bg-cover bg-center bg-no-repeat p-5 md:mb-[70px] md:min-h-0 md:rounded-[20px] md:p-7"
+            className="mb-10 min-h-[500px] rounded-xl bg-cover bg-center bg-no-repeat p-5 md:mb-[70px] md:min-h-0 md:p-7"
             style={{
               backgroundImage: `url(${service.bgImage})`,
             }}
@@ -44,13 +44,13 @@ export const MainContent = ({ isHomePage = true }: { isHomePage?: boolean }) => 
                 <div className="flex justify-between md:justify-start md:gap-4">
                   <button
                     onClick={() => openOrderForm('order')}
-                    className="cursor-pointer rounded-xl bg-[#3198FF] px-4 py-2 text-sm text-white md:rounded-[20px] md:px-6 md:py-3 md:text-[16px]"
+                    className="cursor-pointer rounded-xl bg-[#3198FF] px-4 py-2 text-sm text-white md:px-6 md:py-3 md:text-[16px]"
                   >
                     Рассчитать стоимость
                   </button>
                   {/* <Link
                     href="/laser-cutting"
-                    className="rounded-xl border-[1px] border-solid border-[#3198ff] px-4 py-2 text-sm text-[#a7a8ab] md:rounded-[20px] md:px-6 md:py-3 md:text-[16px]"
+                    className="rounded-xl border-[1px] border-solid border-[#3198ff] px-4 py-2 text-sm text-[#a7a8ab] md:px-6 md:py-3 md:text-[16px]"
                   >
                     Подробнее
                   </Link> */}

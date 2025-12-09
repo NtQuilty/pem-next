@@ -75,7 +75,7 @@ export const Header: FC = () => {
                   </span>
 
                   <div className="absolute left-1/2 top-full mt-2 -translate-x-1/2 opacity-0 invisible transition-all duration-300 group-hover:opacity-100 group-hover:visible">
-                    <div className="min-w-[200px] rounded-lg bg-[#1d2233] shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div className="min-w-[200px] rounded-xl bg-[#1d2233] shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                       <ul className="py-2">
                         {navigationLink.options.map(option => (
                           <li key={option.id}>

@@ -39,7 +39,7 @@ export const Projects = ({ isHomePage }: { isHomePage: boolean }) => {
           {visibleProjects.map(project => (
             <Box
               key={project.id}
-              className="group relative w-full cursor-pointer overflow-hidden rounded-md sm:w-[calc(50%-8px)] md:h-60 md:w-[calc(33.333%-12px)]"
+              className="group relative w-full cursor-pointer overflow-hidden rounded-xl sm:w-[calc(50%-8px)] md:h-60 md:w-[calc(33.333%-12px)]"
               onClick={() => handleOpen(project.imagePath, project.title)}
             >
               <Box
@@ -76,7 +76,7 @@ export const Projects = ({ isHomePage }: { isHomePage: boolean }) => {
       </div>
 
       <Modal open={open} onClose={handleClose} className="flex items-center justify-center p-4">
-        <div className="rounded-lg bg-[#1a1e2c] p-4 sm:p-6 md:p-8">
+        <div className="rounded-xl bg-[#1a1e2c] p-4 sm:p-6 md:p-8">
           <div className="mb-4 flex items-center justify-between">
             <Typography variant="h6" className="text-sm text-white sm:text-base md:text-lg">
               {selectedTitle}

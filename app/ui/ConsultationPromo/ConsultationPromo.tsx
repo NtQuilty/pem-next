@@ -28,7 +28,7 @@ export const ConsultationPromo: React.FC = () => {
             <div className="flex flex-col items-end gap-4 md:flex-row md:items-center md:justify-normal md:gap-[24px]">
               <button
                 onClick={() => openOrderForm('consultation')}
-                className="max-w-[180px] rounded-[10px] bg-[#3B82F6] px-[30px] py-3 text-center text-white md:max-w-none md:px-[80px] md:py-4"
+                className="max-w-[180px] rounded-xl bg-[#3B82F6] px-[30px] py-3 text-center text-white md:max-w-none md:px-[80px] md:py-4"
               >
                 Консультация
               </button>

@@ -105,7 +105,7 @@ export const LandingHero = () => {
                   <button
                     onClick={() => openOrderForm('order')}
                     className="
-                    cursor-pointer btn-text-lg w-full rounded-[20px] bg-[#3198FF]
+                    cursor-pointer btn-text-lg w-full rounded-xl bg-[#3198FF]
                     py-3 text-white transition-all duration-200
                     hover:bg-[#2980e6] sm:w-[260px] md:w-[300px] md:py-4 lg:w-[340px] lg:py-[25px]"
                   >
@@ -116,7 +116,7 @@ export const LandingHero = () => {
                     href="/laser-cutting"
                     className="
                       btn-text-lg flex w-full
-                      items-center justify-center rounded-[20px]
+                      items-center justify-center rounded-xl
                       border-px border-solid
                       border-[#3198ff] py-3 text-gray-400 transition-all
                       duration-200 hover:bg-[#3198ff] hover:text-white

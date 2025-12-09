@@ -230,7 +230,7 @@ export const DiscountForm: React.FC = () => {
                 <Button
                   type="submit"
                   variant="contained"
-                  className="btn-text w-full rounded bg-[#3198FF] px-4 py-3 text-white transition-all duration-200 hover:bg-[#2980e6]"
+                  className="btn-text w-full rounded-xl bg-[#3198FF] px-4 py-3 text-white transition-all duration-200 hover:bg-[#2980e6]"
                   sx={{
                     opacity: isValid ? 1 : 0.7,
                     '&:hover': {
