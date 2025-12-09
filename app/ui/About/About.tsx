@@ -1,13 +1,13 @@
+import Image from 'next/image';
+
 export const About = ({ isHomePage = true }: { isHomePage?: boolean }) => {
   return (
     <section
       className={`relative mx-auto bg-[#1a1e2c] pb-[50px] ${isHomePage ? ' pt-[100px]' : 'pt-[92px] md:pt-[100px]'}`}
     >
       <div className="mx-auto px-4 md:max-w-[1350px]">
-        {/* Заголовок секции */}
         <h1 className="heading-h1 mb-6 md:mb-12">О компании</h1>
 
-        {/* Верхняя секция с информацией */}
         <div className="flex flex-col md:flex-row md:gap-6">
           <div className=" md:w-[60%]">
             <div className="flex flex-col gap-4 md:gap-6">
@@ -17,18 +17,19 @@ export const About = ({ isHomePage = true }: { isHomePage?: boolean }) => {
                 создает высокоточные решения для машиностроения, энергетики, строительства и
                 рекламной индустрии.
                 <br />
-                Современные лазерные комплексы с ЧПУ Мы используем передовые волоконные и CO₂
+                Современные лазерные комплексы с ЧПУ; Мы используем передовые волоконные и CO₂
                 лазерные станки, работаем с материалами толщиной от 0,5 до 40 мм: нержавеющая и
                 черная сталь, алюминий, медь, латунь, полимеры. Изготавливаем детали с точностью до
                 0,02 мм — от серийного производства до уникальных заказов. Сотрудничаем с
                 промышленными предприятиями, архитектурными бюро и стартапами.
               </p>
             </div>
-            <div className="mt-6 md:mt-8 md:h-[500px] md:overflow-hidden">
-              <img
+            <div className="mt-6 md:h-[500px] md:overflow-hidden">
+              <Image
                 src="/images/about/copper-equipment.webp"
                 alt="Оборудование для 3D печати"
-                loading="lazy"
+                width={800}
+                height={500}
                 className="h-full w-full rounded-lg md:object-cover"
               />
             </div>
@@ -37,10 +38,11 @@ export const About = ({ isHomePage = true }: { isHomePage?: boolean }) => {
           <div className="mt-6  md:mt-0 md:w-[40%]">
             <div className="mb-4 flex flex-col gap-5 md:mb-6">
               <div className="order-2 md:order-1 md:h-[250px] md:overflow-hidden">
-                <img
+                <Image
                   src="/images/about/gold-equipment.webp"
                   alt="Оборудование с компьютером"
-                  loading="lazy"
+                  width={600}
+                  height={250}
                   className="h-auto w-full rounded-lg md:h-full md:w-full md:object-cover"
                 />
               </div>
@@ -70,7 +72,7 @@ export const About = ({ isHomePage = true }: { isHomePage?: boolean }) => {
         </div>
 
         {!isHomePage && (
-          <div className="md:mt-12">
+          <div className="md:mt-8">
             <div className="flex flex-col justify-between gap-6 md:flex-row">
               <div className=" flex-1">
                 <p className="text-body">
@@ -84,10 +86,11 @@ export const About = ({ isHomePage = true }: { isHomePage?: boolean }) => {
                 </p>
               </div>
               <div className="flex-[2_1_0]  md:overflow-hidden">
-                <img
+                <Image
                   src="/images/about/mesh-structure.webp"
                   alt="Сетчатая структура"
-                  loading="lazy"
+                  width={800}
+                  height={400}
                   className="md:rounded-lg md:object-cover"
                 />
               </div>

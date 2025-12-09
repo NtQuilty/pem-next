@@ -3,11 +3,20 @@ import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
 const StyledPhoneBox = styled(Box, {
-  shouldForwardProp: prop => prop !== '$isLightTheme',
-})<{ $isLightTheme?: boolean }>`
+  shouldForwardProp: prop => prop !== '$isLightTheme' && prop !== '$withBorder',
+})<{ $isLightTheme?: boolean; $withBorder?: boolean }>`
   padding: 16.5px 14px;
-  border: none !important;
+  border: ${props => (props.$withBorder ? '1px solid rgba(255, 255, 255, 0.15)' : 'none')};
   outline: none !important;
+  transition: border-color 0.2s ease-in-out;
+
+  &:hover {
+    border-color: ${props => (props.$withBorder ? 'rgba(255, 255, 255, 0.25)' : 'transparent')};
+  }
+
+  &:focus-within {
+    border-color: ${props => (props.$withBorder ? '#0ea5e9' : 'transparent')};
+  }
 
   & .PhoneInput {
     border: none !important;
@@ -46,6 +55,7 @@ interface PhoneMaskCustomProps {
   onChange: (value: string | undefined) => void;
   onCountryChange?: (country: string | undefined) => void;
   isLightTheme?: boolean;
+  withBorder?: boolean;
 }
 
 export const PhoneMaskCustom: React.FC<PhoneMaskCustomProps> = ({
@@ -53,9 +63,14 @@ export const PhoneMaskCustom: React.FC<PhoneMaskCustomProps> = ({
   onChange,
   onCountryChange,
   isLightTheme = true,
+  withBorder = false,
 }) => {
   return (
-    <StyledPhoneBox $isLightTheme={isLightTheme} className="rounded-2xl bg-[#262d37]">
+    <StyledPhoneBox
+      $isLightTheme={isLightTheme}
+      $withBorder={withBorder}
+      className="rounded-2xl bg-[#262d37]"
+    >
       <PhoneInput
         id="phone"
         value={value}

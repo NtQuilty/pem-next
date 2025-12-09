@@ -1,26 +1,225 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #13151e;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  font-family: var(--font-roboto-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #d1d5db;
+  min-height: 100vh;
+}
+
+.heading-xl {
+  color: #c1c1c1; 
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 1.875rem;
+}
+
+@media (min-width: 640px) {
+  .heading-xl {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .heading-xl {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading-xl {
+    font-size: 3.75rem;
+  }
+}
+
+.heading-lg {
+  color: #d1d5db; 
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 1.875rem;
+}
+
+@media (min-width: 640px) {
+  .heading-lg {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .heading-lg {
+    font-size: 2.5rem;
+  }
+}
+
+.heading-md {
+  color: #d1d5db; 
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .heading-md {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .heading-md {
+    font-size: 1.875rem;
+  }
+}
+
+.heading-sm {
+  color: #d1d5db; 
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: 1.125rem;
+}
+
+@media (min-width: 640px) {
+  .heading-sm {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .heading-sm {
+    font-size: 1.5rem;
+  }
+}
+
+.heading-xs {
+  color: #d1d5db; 
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .heading-xs {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .heading-xs {
+    font-size: 1.25rem;
+  }
+}
+
+.text-body-lg {
+  color: hsla(0, 0%, 84%, 0.7);
+  line-height: 1.625;
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .text-body-lg {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .text-body-lg {
+    font-size: 1.25rem;
+  }
+}
+
+.text-body {
+  color: #969696;
+  line-height: 1.625;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .text-body {
+    font-size: 1rem;
+  }
+}
+
+.text-body-sm {
+  color: #9ca3af;
+  line-height: 1.625;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .text-body-sm {
+    font-size: 0.875rem;
+  }
+}
+
+.text-accent {
+  color: #3198ff;
+  font-weight: 500;
+}
+
+/* Кнопки */
+.btn-text-lg {
+  font-weight: 600;
+  font-size: 1rem; /* 16px */
+}
+
+@media (min-width: 640px) {
+  .btn-text-lg {
+    font-size: 1.125rem;
+  } /* 18px */
+}
+
+@media (min-width: 768px) {
+  .btn-text-lg {
+    font-size: 1.25rem;
+  } /* 20px */
+}
+
+.btn-text {
+  font-weight: 600;
+  font-size: 0.875rem; 
+}
+
+@media (min-width: 640px) {
+  .btn-text {
+    font-size: 1rem;
+  }
+}
+
+.btn-text-sm {
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .btn-text-sm {
+    font-size: 0.875rem;
+  }
+}
+
+.shadow-header {
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.44),
+    inset 67.3333px -67.3333px 67.3333px rgba(148, 148, 148, 0.027),
+    inset -67.3333px 67.3333px 67.3333px rgba(255, 255, 255, 0.027);
+}
+
+.heading-h1 {
+  color: #d1d5db;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 28px;
+}
+
+@media (min-width: 768px) {
+  .heading-h1 {
+    font-size: 40px;
+  }
 }

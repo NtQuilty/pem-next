@@ -1,7 +1,10 @@
+'use client';
+
 import { Box, Button, Modal, Typography } from '@mui/material';
 import { useState } from 'react';
 import { IoArrowDown, IoClose } from 'react-icons/io5';
 import { projectsData } from './const';
+import Image from 'next/image';
 
 export const Projects = ({ isHomePage }: { isHomePage: boolean }) => {
   const [open, setOpen] = useState(false);
@@ -87,11 +90,13 @@ export const Projects = ({ isHomePage }: { isHomePage: boolean }) => {
             </Button>
           </div>
 
-          <img
+          <Image
             src={selectedImage}
             alt={selectedTitle}
             loading="lazy"
             className="max-h-[75vh] min-h-[50vh] min-w-[70vw] max-w-[85vw] object-contain"
+            width={500}
+            height={500}
           />
         </div>
       </Modal>

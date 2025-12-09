@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
+import Image from 'next/image';
 import { ADDRESS, EMAIL, navigationLinks, TELEPHONE_NUMBER } from '../../config';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { FaTelegram, FaVk } from 'react-icons/fa';
 import { BsTelephoneFill } from 'react-icons/bs';
 import { TbMailFilled } from 'react-icons/tb';
@@ -11,33 +14,39 @@ import { NavLink } from './components/NavLink';
 import { formatPhoneNumber } from '../../helpers';
 
 export const Footer: React.FC = () => {
-  const service = navigationLinks.find(item => item.id === 'laser-cutting');
   return (
-    <footer className="bg-[#1a1e2c] py-8 md:py-12">
-      <div className="mx-auto px-4 md:max-w-[1350px]">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div className="flex items-center justify-between md:flex-col md:items-start">
-            <Link to="/" className="mb-4 block md:mb-6">
-              <div className="flex items-center">
-                <img
-                  src="/images/logo.webp"
-                  alt="PEM"
-                  className="h-[60px] w-[150px] md:h-[75px] md:w-[180px]"
-                />
-              </div>
+    <footer className="relative bg-linear-to-b from-[#1a1e2c] to-[#13151e] py-12 md:py-16">
+      <div className="absolute left-0 right-0 top-0 h-px bg-linear-to-r from-transparent via-blue-500/50 to-transparent"></div>
+      
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+          <div>
+             <div className="flex items-center gap-4">
+            <Link href="/" className="mb-6 inline-block transition-opacity hover:opacity-80">
+              <Image
+                src="/images/sticker.webp"
+                alt="Петроэнергомаш"
+                width={100}
+                height={84}
+                className="h-auto w-[180px] md:w-[200px]"
+              />
             </Link>
-            <div className="mb-6 ml-6 flex space-x-3">
+            <p className="mb-6 text-sm leading-relaxed text-gray-400">
+              Профессиональная лазерная резка металла и металлообработка в Санкт-Петербурге
+            </p>
+          </div>
+          <div className="flex space-x-4">
               <SocialLink to="https://t.me/dmpmax" icon={FaTelegram} />
               <SocialLink to="https://vk.com/nrgmru" icon={FaVk} />
             </div>
           </div>
+         
 
-          {/* Колонка 2: Навигация */}
           <div>
-            <h3 className="mb-3 text-base font-bold text-[#d6d6d6] md:mb-4 md:text-lg">
+            <h3 className="mb-6 text-lg font-bold text-white">
               Навигация
             </h3>
-            <nav className="space-y-2 md:space-y-3">
+            <nav className="space-y-3">
               {navigationLinks.map(item => {
                 if (item.id === 'home' || item.id === 'laser-cutting') return null;
                 return (
@@ -49,41 +58,23 @@ export const Footer: React.FC = () => {
             </nav>
           </div>
 
-          {/* Колонка 3: Услуги */}
           <div>
-            <h3 className="mb-3 text-base font-bold  text-[#d6d6d6] md:mb-4 md:text-lg">Услуги</h3>
-            <nav className="space-y-2 md:space-y-3">
-              <NavLink key={service?.id} to={service?.link || ''}>
-                {service?.title}
-              </NavLink>
-
-              {/* TODO: Если вдруг понадобятся */}
-              {/* {servicesNav?.options?.map(service => (
-                <NavLink key={service.id} to={service.link}>
-                  {service.title}
-                </NavLink>
-              ))} */}
-            </nav>
-          </div>
-
-          {/* Колонка 4: Контакты */}
-          <div>
-            <h3 className="mb-3 text-base font-bold  text-[#d6d6d6] md:mb-4 md:text-lg">
+            <h3 className="mb-6 text-lg font-bold text-white">
               Контакты
             </h3>
-            <div className="space-y-2 md:space-y-3">
-              <ContactItem to={`tel:${TELEPHONE_NUMBER}`} icon={BsTelephoneFill} size={14}>
+            <div className="space-y-4">
+              <ContactItem to={`tel:${TELEPHONE_NUMBER}`} icon={BsTelephoneFill} size={16}>
                 {formatPhoneNumber(TELEPHONE_NUMBER)}
               </ContactItem>
 
-              <ContactItem to={`mailto:${EMAIL}`} icon={TbMailFilled} size={14}>
+              <ContactItem to={`mailto:${EMAIL}`} icon={TbMailFilled} size={16}>
                 {EMAIL}
               </ContactItem>
 
               <ContactItem
                 to="https://yandex.ru/maps/org/petroenergomash/104925148159/?ll=30.426208%2C59.880216&z=17"
                 icon={IoLocationSharp}
-                size={14}
+                size={16}
               >
                 {ADDRESS}
               </ContactItem>
@@ -91,10 +82,15 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-gray-800 pt-4 md:mt-12 md:pt-6">
-          <p className="text-center text-xs text-gray-500 md:text-sm">
-            © {new Date().getFullYear()} Петроэнергомаш. Все права защищены
-          </p>
+        <div className="mt-12 border-t border-gray-800/50 pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <p className="text-sm text-gray-500">
+              © {new Date().getFullYear()} Петроэнергомаш. Все права защищены
+            </p>
+            <p className="text-sm text-gray-600">
+              г. Санкт-Петербург, ул. Седова 57
+            </p>
+          </div>
         </div>
       </div>
     </footer>

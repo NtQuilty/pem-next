@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import Image from 'next/image';
 import { useOrderForm } from '../../contexts/OrderFormContext';
 
 export const LazerCutting: React.FC = () => {
@@ -11,11 +14,13 @@ export const LazerCutting: React.FC = () => {
       </div>
 
       <div className="flex items-center justify-center">
-        <img
+        <Image
           src="/images/error-image.webp"
-          loading="lazy"
+          alt="Лазерная резка металла"
+          width={1000}
+          height={1000}
           className="w-full object-cover md:h-[500px]"
-        ></img>
+        ></Image>
         <div className="absolute bg-black/50 p-4 text-white">
           <span>Произошла ошибка. Отправьте заявку через</span>{' '}
           <button onClick={() => openOrderForm('order')} className="text-[#3B82F6] underline">

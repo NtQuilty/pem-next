@@ -1,6 +1,9 @@
-import { Link } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
 import { useOrderForm } from '../../contexts/OrderFormContext';
 import { servicesData } from './const';
+import Image from 'next/image';
 
 export const MainContent = ({ isHomePage = true }: { isHomePage?: boolean }) => {
   const { openOrderForm } = useOrderForm();
@@ -21,10 +24,11 @@ export const MainContent = ({ isHomePage = true }: { isHomePage?: boolean }) => 
             }}
           >
             <div className="flex flex-col md:flex-row md:items-center">
-              <img
+              <Image
                 src={service.image}
                 alt={service.title}
-                loading="lazy"
+                width={500}
+                height={500}
                 className={`max-h-64 object-contain md:max-h-96 md:w-1/2 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}
               />
               <div
@@ -40,16 +44,16 @@ export const MainContent = ({ isHomePage = true }: { isHomePage?: boolean }) => 
                 <div className="flex justify-between md:justify-start md:gap-4">
                   <button
                     onClick={() => openOrderForm('order')}
-                    className="rounded-xl bg-[#3198FF] px-4 py-2 text-sm text-white md:rounded-[20px] md:px-6 md:py-3 md:text-[16px]"
+                    className="cursor-pointer rounded-xl bg-[#3198FF] px-4 py-2 text-sm text-white md:rounded-[20px] md:px-6 md:py-3 md:text-[16px]"
                   >
                     Рассчитать стоимость
                   </button>
-                  <Link
-                    to="/laser-cutting"
+                  {/* <Link
+                    href="/laser-cutting"
                     className="rounded-xl border-[1px] border-solid border-[#3198ff] px-4 py-2 text-sm text-[#a7a8ab] md:rounded-[20px] md:px-6 md:py-3 md:text-[16px]"
                   >
                     Подробнее
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>

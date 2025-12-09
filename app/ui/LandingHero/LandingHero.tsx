@@ -1,6 +1,8 @@
+'use client';
+
 import { useRef, useState } from 'react';
+import Image from 'next/image';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-import { Link } from 'react-router-dom';
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -20,7 +22,6 @@ export const LandingHero = () => {
   const goToPrevSlide = () => {
     if (swiperRef.current) {
       if (activeIndex === 0) {
-        // Если мы на первом слайде, переходим к последнему
         swiperRef.current.slideTo(services.length - 1);
       } else {
         swiperRef.current.slidePrev();
@@ -31,7 +32,6 @@ export const LandingHero = () => {
   const goToNextSlide = () => {
     if (swiperRef.current) {
       if (activeIndex === services.length - 1) {
-        // Если мы на последнем слайде, переходим к первому
         swiperRef.current.slideTo(0);
       } else {
         swiperRef.current.slideNext();
@@ -63,10 +63,11 @@ export const LandingHero = () => {
             {services.map(service => (
               <SwiperSlide key={service.id} className="h-full w-full">
                 <div className="h-full w-full ">
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.id}
-                    className="h-full w-full bg-black object-cover"
+                    fill
+                    className="bg-black object-cover"
                   />
                   <div className="absolute inset-0 bg-black opacity-70"></div>
                 </div>
@@ -75,12 +76,11 @@ export const LandingHero = () => {
           </Swiper>
         </div>
 
-        <div className="z-[5] col-start-1 row-start-1 flex h-full w-full flex-col justify-between gap-[150px] lg:gap-[0px]">
+        <div className="z-5 col-start-1 row-start-1 flex h-full w-full flex-col justify-between gap-[150px] lg:gap-0">
           <div className="relative flex flex-1 items-end justify-start lg:items-center">
-            {/* Desktop Navigation Arrows */}
             <button
               onClick={goToPrevSlide}
-              className="absolute left-4 top-1/2 z-[8] hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/20 md:flex"
+              className="cursor-pointer absolute left-4 top-1/2 z-8 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/20 md:flex"
               aria-label="Предыдущий слайд"
             >
               <MdKeyboardArrowLeft className="h-6 w-6" />
@@ -88,7 +88,7 @@ export const LandingHero = () => {
 
             <button
               onClick={goToNextSlide}
-              className="absolute right-4 top-1/2 z-[8] hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/20 md:flex"
+              className="cursor-pointer absolute right-4 top-1/2 z-8 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/20 md:flex"
               aria-label="Следующий слайд"
             >
               <MdKeyboardArrowRight className="h-6 w-6" />
@@ -105,19 +105,19 @@ export const LandingHero = () => {
                   <button
                     onClick={() => openOrderForm('order')}
                     className="
-                    btn-text-lg w-full rounded-[20px] bg-[#3198FF]
+                    cursor-pointer btn-text-lg w-full rounded-[20px] bg-[#3198FF]
                     py-3 text-white transition-all duration-200
                     hover:bg-[#2980e6] sm:w-[260px] md:w-[300px] md:py-4 lg:w-[340px] lg:py-[25px]"
                   >
                     Рассчитать стоимость
                   </button>
 
-                  <Link
-                    to="/laser-cutting"
+                  {/* <Link
+                    href="/laser-cutting"
                     className="
                       btn-text-lg flex w-full
                       items-center justify-center rounded-[20px]
-                      border-[1px] border-solid
+                      border-px border-solid
                       border-[#3198ff] py-3 text-gray-400 transition-all
                       duration-200 hover:bg-[#3198ff] hover:text-white
                       sm:w-[200px] md:w-[230px] md:py-4
@@ -125,14 +125,13 @@ export const LandingHero = () => {
                     "
                   >
                     Подробнее
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
           </div>
 
           <div className="flex flex-col items-center gap-6 pb-6 md:pb-8">
-            {/* Mobile Navigation Arrows */}
             <div className="flex items-center gap-6 md:hidden">
               <button
                 onClick={goToPrevSlide}
@@ -168,7 +167,6 @@ export const LandingHero = () => {
               </button>
             </div>
 
-            {/* Desktop dots only */}
             <div className="hidden gap-3 md:flex">
               {services.map((_, index) => (
                 <button

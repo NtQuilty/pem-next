@@ -1,7 +1,10 @@
+'use client';
+
 import { FC, useState } from 'react';
+import Image from 'next/image';
 import { Drawer, IconButton } from '@mui/material';
 import { MdClose, MdKeyboardArrowDown } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { navigationLinks, TELEPHONE_NUMBER } from '../../../config';
 import { FaTelegram } from 'react-icons/fa';
 import { BsTelephoneFill } from 'react-icons/bs';
@@ -46,17 +49,15 @@ export const HeaderDrawer: FC<HeaderDrawerProps> = ({ drawerOpen, toggleDrawer }
       }}
     >
       <div className="flex flex-col p-4">
-        {/* Шапка с логотипом и кнопкой закрытия */}
         <div className="mb-8 flex items-center justify-between">
-          <Link to="/" onClick={toggleDrawer(false)} className="flex items-center">
-            <img src="/images/logo.webp" alt="logo" className="h-8" />
+          <Link href="/" onClick={toggleDrawer(false)} className="flex items-center">
+            <Image src="/images/logotip.webp" alt="logo" width={120} height={32} className="h-8" />
           </Link>
           <IconButton onClick={toggleDrawer(false)} className="text-white">
             <MdClose size={24} color="white" />
           </IconButton>
         </div>
 
-        {/* Навигационные ссылки */}
         <div className="flex flex-col gap-6">
           {navigationLinks.map(link => {
             if (link.id === 'home') return null;
@@ -80,7 +81,7 @@ export const HeaderDrawer: FC<HeaderDrawerProps> = ({ drawerOpen, toggleDrawer }
                       {link.options.map(option => (
                         <Link
                           key={option.id}
-                          to={option.link}
+                          href={option.link}
                           onClick={toggleDrawer(false)}
                           className="text-[#a7a8ab] transition-colors hover:text-[#3198ff]"
                         >
@@ -96,7 +97,7 @@ export const HeaderDrawer: FC<HeaderDrawerProps> = ({ drawerOpen, toggleDrawer }
             return (
               <Link
                 key={link.id}
-                to={link.link}
+                href={link.link}
                 onClick={toggleDrawer(false)}
                 className="border-b border-gray-700 pb-4 text-lg text-[#a7a8ab] transition-colors hover:text-[#3198ff]"
               >
@@ -106,7 +107,6 @@ export const HeaderDrawer: FC<HeaderDrawerProps> = ({ drawerOpen, toggleDrawer }
           })}
         </div>
 
-        {/* Кнопка заказа */}
         <button
           onClick={handleOrderClick}
           className="mt-8 w-full rounded-lg bg-[#3198ff] px-6 py-3 text-base text-white transition-colors hover:bg-[#1d80e2]"
@@ -114,7 +114,6 @@ export const HeaderDrawer: FC<HeaderDrawerProps> = ({ drawerOpen, toggleDrawer }
           Быстрый заказ
         </button>
 
-        {/* Социальные сети и контакты */}
         <div className="mt-auto flex gap-4 pt-8">
           <a
             href="https://t.me/nrgmru"

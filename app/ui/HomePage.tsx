@@ -14,7 +14,7 @@ export const HomePage = () => {
       <MainContent />
       <Advantages />
       <ConsultationPromo />
-      <Projects isHomePage={true} />
+      <Projects isHomePage />
       <FAQ />
       <About />
       <DiscountForm />

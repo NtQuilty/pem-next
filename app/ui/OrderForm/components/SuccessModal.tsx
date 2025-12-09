@@ -1,4 +1,5 @@
 import { Box, Button, Dialog, DialogContent, IconButton, Typography } from '@mui/material';
+import Image from 'next/image';
 import React from 'react';
 import { IoMdClose } from 'react-icons/io';
 
@@ -51,7 +52,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
           </IconButton>
         </div>
         <div className="mb-6">
-          <img src="/images/logo.webp" alt="ПетроЭнергоМаш" className="h-12 w-auto" />
+          <Image src="/images/logotip.webp" alt="ПетроЭнергоМаш" className="h-12 w-auto" width={120} height={32} />
         </div>
 
         <div className="mb-6">

@@ -1,4 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
+import Image from 'next/image';
 import {
   TextField,
   Button,
@@ -61,7 +64,7 @@ export const DiscountForm: React.FC = () => {
     });
 
     try {
-      const response = await fetch(import.meta.env.VITE_BOT_API, {
+      const response = await fetch(process.env.NEXT_PUBLIC_BOT_API || '/api/submit', {
         method: 'POST',
         body: formData,
       });
@@ -74,7 +77,7 @@ export const DiscountForm: React.FC = () => {
         });
         reset();
       }
-    } catch (_error) {
+    } catch {
       setSnackbar({
         open: true,
         message: 'Произошла ошибка при отправке заявки. Попробуйте снова или напишите нам на почту',
@@ -86,21 +89,19 @@ export const DiscountForm: React.FC = () => {
   return (
     <section className="relative mx-auto bg-[#13151e] pb-[50px] pt-[100px]">
       <div className="mx-auto px-4 md:max-w-[1350px]">
-        <div className="flex flex-col items-start justify-between gap-8 md:flex-row">
-          {/* Левая часть с изображением и текстом */}
+        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <div className="md:w-1/2 ">
-            <img
+            <Image
               src="/images/sale.webp"
               alt="Скидка 10%"
-              loading="lazy"
+              width={600}
+              height={600}
               className="mx-auto h-auto max-w-full md:mx-0"
             />
           </div>
 
-          {/* Правая часть с формой */}
           <div className="w-full max-w-lg md:w-1/2">
             <div className="relative rounded-3xl border border-gray-700 bg-[#1b1e29] p-6 shadow-md">
-              {/* Тонкая внутренняя подсветка */}
               <div
                 className="box-shadow-[inset_0_0_20px_rgba(100,100,100,0.2)] pointer-events-none absolute inset-0 rounded-lg opacity-30"
                 style={{
@@ -109,7 +110,7 @@ export const DiscountForm: React.FC = () => {
               ></div>
 
               <h3 className="heading-md mb-2">Отправьте заявку</h3>
-              <p className="text-body relative z-[5] mb-6">
+              <p className="text-body relative z-5 mb-6">
                 И мы свяжемся с Вами в течение 15 минут
               </p>
 
@@ -156,6 +157,7 @@ export const DiscountForm: React.FC = () => {
                         onChange={field.onChange}
                         onCountryChange={country => setSelectedCountry(country || 'RU')}
                         isLightTheme={false}
+                        withBorder={true}
                       />
                       {error && selectedCountry === 'RU' && (
                         <FormHelperText error className="md:ml-3">

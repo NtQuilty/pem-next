@@ -1,15 +1,17 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { Typography } from '@mui/material';
 import { hasCookieConsent, COOKIE_CONSENT_KEY } from '../../utils/cookieConsent';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useRouter, usePathname } from 'next/navigation';
 
 export const CookieConsent: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    const isCookiePage = location.pathname === '/cookies';
+    const isCookiePage = pathname === '/cookies';
 
     if (!hasCookieConsent() && !isCookiePage) {
       const timer = setTimeout(() => {
@@ -17,7 +19,7 @@ export const CookieConsent: React.FC = () => {
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [location.pathname]);
+  }, [pathname]);
 
   const handleAccept = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted');
@@ -42,7 +44,7 @@ export const CookieConsent: React.FC = () => {
             cookie, чтобы улучшить работу сайта, повысить его эффективность и удобство. Вы можете
             ознакомиться с нашими{' '}
             <button
-              onClick={() => navigate('/cookies')}
+              onClick={() => router.push('/cookies')}
               className="text-accent cursor-pointer border-none bg-transparent p-0 font-medium underline transition-colors hover:text-blue-400"
             >
               Условиями использования файлов cookie

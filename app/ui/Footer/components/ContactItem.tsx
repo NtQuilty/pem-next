@@ -1,5 +1,5 @@
 import { IconType } from 'react-icons';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export const ContactItem: React.FC<{
   to?: string;
@@ -7,25 +7,26 @@ export const ContactItem: React.FC<{
   children: React.ReactNode;
   isLink?: boolean;
   size?: number;
-}> = ({ to, icon, children, isLink = true, size = 20 }) => {
+}> = ({ to, icon, children, isLink = true, size = 16 }) => {
   const content = (
     <>
-      <span className="mr-3 flex h-6 w-6 items-center justify-center rounded-full bg-[#1b1e29] transition-colors group-hover:text-[#3198ff]">
-        {icon({ className: 'text-white group-hover:text-[#3198ff] transition-colors', size: size })}
+      <span className="mr-3 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gray-800/50 transition-all duration-300 group-hover:bg-blue-500/10 group-hover:shadow-lg group-hover:shadow-blue-500/20">
+        {icon({ className: 'text-gray-400 transition-colors duration-300 group-hover:text-blue-400', size: size })}
       </span>
-      <span className="transition-colors group-hover:text-[#3198ff]">{children}</span>
+      <span className="text-sm leading-relaxed text-gray-400 transition-colors duration-300 group-hover:text-gray-300">{children}</span>
     </>
   );
 
   return (
-    <div className="group relative flex items-start text-gray-400">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-4/5 w-4/5 -translate-x-1/2 -translate-y-1/2 bg-[rgba(48,152,255,0.35)] opacity-0 blur-[50px] transition-opacity duration-300 group-hover:opacity-100"></div>
+    <div className="group relative flex items-center">
       {isLink ? (
-        <Link to={to || '#'} target="_blank" className="flex items-center">
+        <Link href={to || '#'} target="_blank" rel="noopener noreferrer" className="flex items-center transition-transform duration-300 hover:translate-x-1">
           {content}
         </Link>
       ) : (
-        content
+        <div className="flex items-center">
+          {content}
+        </div>
       )}
     </div>
   );

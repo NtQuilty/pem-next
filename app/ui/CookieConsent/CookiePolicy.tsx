@@ -2,7 +2,7 @@ import React from 'react';
 
 export const CookiePolicy: React.FC = () => {
   return (
-    <section className="relative mx-auto bg-[#1a1e2c] pt-[92px] md:pt-[100px]">
+    <section className="relative mx-auto bg-[#1a1e2c] pt-[92px] md:pt-[100px] pb-12">
       <div className="mx-auto px-4 md:max-w-[1350px]">
         <h1 className="heading-h1 mb-8 md:mb-12">Политика в отношении cookie-файлов</h1>
 
@@ -44,7 +44,6 @@ export const CookiePolicy: React.FC = () => {
             </p>
           </div>
 
-          {/* Типы файлов */}
           <div>
             <h2 className="heading-sm mb-6 md:mb-8">Типы файлов cookie и как мы используем их</h2>
             <p className="text-body mb-6">
@@ -162,7 +161,7 @@ export const CookiePolicy: React.FC = () => {
 
               <div className="rounded-2xl border border-yellow-600/30 bg-[#1b1e29] p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-yellow-600">
+                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-yellow-600">
                     <span className="text-sm font-bold text-white">!</span>
                   </div>
                   <p className="text-body">

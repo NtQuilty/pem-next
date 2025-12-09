@@ -1,3 +1,5 @@
+'use client';
+
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Box,
@@ -138,7 +140,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ open, onClose, formType })
     }
 
     try {
-      const response = await fetch(import.meta.env.VITE_BOT_API, {
+      const response = await fetch(process.env.NEXT_PUBLIC_BOT_API || '/api/submit', {
         method: 'POST',
         body: formData,
       });
@@ -199,6 +201,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ open, onClose, formType })
             <IoMdClose size={32} />
           </IconButton>
         </Box>
+
         <DialogContent className="!flex !min-h-full flex-col !items-center !justify-start gap-4 !p-4 md:!items-start md:!px-[50px] md:!py-[100px]">
           <div className="flex w-full justify-end md:hidden">
             <IconButton onClick={handleClose} sx={{ color: 'white' }}>
@@ -218,7 +221,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ open, onClose, formType })
               </Typography>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 sm:space-y-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
               <Box className="flex flex-col justify-center gap-6 md:flex-row md:gap-3">
                 <Controller
                   name="name"
