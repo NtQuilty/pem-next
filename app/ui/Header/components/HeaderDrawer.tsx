@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Drawer, IconButton } from '@mui/material';
 import { MdClose, MdKeyboardArrowDown } from 'react-icons/md';
 import Link from 'next/link';
-import { navigationLinks, TELEPHONE_NUMBER } from '../../../config';
+import { navigationLinks, TELEPHONE_NUMBER, SOCIAL_LINKS } from '../../../config';
 import { FaTelegram } from 'react-icons/fa';
 import { BsTelephoneFill } from 'react-icons/bs';
 import { useOrderForm } from '../../../contexts/OrderFormContext';
@@ -116,7 +116,7 @@ export const HeaderDrawer: FC<HeaderDrawerProps> = ({ drawerOpen, toggleDrawer }
 
         <div className="mt-auto flex gap-4 pt-8">
           <a
-            href="https://t.me/nrgmru"
+            href={SOCIAL_LINKS.telegram}
             target="_blank"
             rel="noopener noreferrer"
             className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2a2d39] transition-colors hover:bg-[#3a3e4d]"

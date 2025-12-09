@@ -1,11 +1,9 @@
-'use client';
-
 import React from 'react';
 import { BsFillGeoAltFill, BsTelephoneFill } from 'react-icons/bs';
 import { FaRegClock, FaTelegram } from 'react-icons/fa';
 import { TbBrandMessenger, TbMailFilled } from 'react-icons/tb';
 import Link from 'next/link';
-import { EMAIL, TELEPHONE_NUMBER } from '../../config';
+import { EMAIL, TELEPHONE_NUMBER, SOCIAL_LINKS } from '../../config';
 import { formatPhoneNumber } from '../../helpers';
 
 // Мемоизированный компонент карты, чтобы избежать перезагрузки iframe
@@ -90,7 +88,7 @@ export const Contacts: React.FC = () => {
               <p className="text-body-sm">Мессенджеры</p>
               <div className="mt-2">
                 <Link
-                  href="https://t.me/nrgmru"
+                  href={SOCIAL_LINKS.telegram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-[#1b1e29] px-4 py-2 text-white transition-colors hover:bg-[#252a39]"

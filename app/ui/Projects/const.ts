@@ -1,8 +1,4 @@
-interface ProjectData {
-  id: number;
-  title: string;
-  imagePath: string;
-}
+import type { ProjectData } from '../../types';
 
 export const projectsData: ProjectData[] = [
   { id: 1, title: 'Ручной прибор', imagePath: '/images/projects/one.webp' },

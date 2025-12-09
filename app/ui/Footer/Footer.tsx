@@ -1,8 +1,6 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
-import { ADDRESS, EMAIL, navigationLinks, TELEPHONE_NUMBER } from '../../config';
+import { ADDRESS, EMAIL, navigationLinks, TELEPHONE_NUMBER, SOCIAL_LINKS } from '../../config';
 import Link from 'next/link';
 import { FaTelegram, FaVk } from 'react-icons/fa';
 import { BsTelephoneFill } from 'react-icons/bs';
@@ -36,8 +34,8 @@ export const Footer: React.FC = () => {
             </p>
           </div>
           <div className="flex space-x-4">
-              <SocialLink to="https://t.me/dmpmax" icon={FaTelegram} />
-              <SocialLink to="https://vk.com/nrgmru" icon={FaVk} />
+              <SocialLink to={SOCIAL_LINKS.telegramSupport} icon={FaTelegram} />
+              <SocialLink to={SOCIAL_LINKS.vk} icon={FaVk} />
             </div>
           </div>
          

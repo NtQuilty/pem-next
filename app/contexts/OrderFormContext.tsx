@@ -1,8 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, ReactNode } from 'react';
-
-export type OrderFormType = 'order' | 'consultation' | 'discount';
+import type { OrderFormType } from '../types';
 
 interface OrderFormContextType {
   isOpen: boolean;

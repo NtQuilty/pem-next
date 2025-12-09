@@ -19,7 +19,8 @@ import { IoPersonOutline } from 'react-icons/io5';
 import { HiOutlineMail } from 'react-icons/hi';
 import { PhoneMaskCustom } from '../OrderForm/components/PhoneMaskCustom';
 import { schema } from './hookform';
-import { textFieldStyles } from '../../helpers';
+import { textFieldStyles } from '../../styles/mui-theme';
+import { EMAIL } from '@/app/config';
 
 interface FormValues {
   name: string;
@@ -80,7 +81,7 @@ export const DiscountForm: React.FC = () => {
     } catch {
       setSnackbar({
         open: true,
-        message: 'Произошла ошибка при отправке заявки. Попробуйте снова или напишите нам на почту',
+        message: `Произошла ошибка при отправке заявки.\nПопробуйте снова или напишите нам ${EMAIL}.`,
         severity: 'error',
       });
     }

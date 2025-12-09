@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import { OrderFormProvider } from "./contexts/OrderFormContext";
+import { ClientProviders } from "./components/ClientProviders";
 import { Header } from "./ui/Header/Header";
 import { Footer } from "./ui/Footer/Footer";
-import { OrderFormWrapper } from "./ui/OrderFormWrapper";
-import { CookieConsent } from "./ui/CookieConsent/CookieConsent";
-import { ScrollToTop } from "./ui/ScrollToTop/ScrollToTop";
 
 const robotoSans = Roboto({
   variable: "--font-roboto-sans",
@@ -25,16 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={robotoSans.variable}>
+    <html lang="ru" className={robotoSans.className}>
       <body className="antialiased">
-        <OrderFormProvider>
+        <ClientProviders>
           <Header />
           <main>{children}</main>
           <Footer />
-          <OrderFormWrapper />
-          <CookieConsent />
-          <ScrollToTop />
-        </OrderFormProvider>
+        </ClientProviders>
       </body>
     </html>
   );

@@ -1,15 +1,7 @@
-export type NavigationOption = {
-  id: string;
-  title: string;
-  link: string;
-};
+import type { NavigationLink, Service } from './types';
+import { SOCIAL_LINKS } from './constants/social';
 
-type NavigationLink = {
-  id: string;
-  title: string;
-  link: string;
-  options?: NavigationOption[];
-};
+export { SOCIAL_LINKS };
 
 export const navigationLinks: NavigationLink[] = [
   {
@@ -45,7 +37,7 @@ export const navigationLinks: NavigationLink[] = [
   },
 ];
 
-export const services = [
+export const services: readonly Service[] = [
   {
     id: 'lazer',
     title: 'Лазерная резка черных и цветных металлов с высокой точностью',
@@ -61,7 +53,7 @@ export const services = [
       'Сделаем раскладку, быстро рассчитаем стоимость изготовления, дадим реальные сроки. Бережно относимся к материалам заказчика, гарантируем высокое качество деталей.',
     image: '/images/services-images/service-lathe.webp',
   },
-] as const;
+];
 
 export const TELEPHONE_NUMBER = '+78122192015';
 export const EMAIL = 'zakaz24@nrg-m.ru';

@@ -82,7 +82,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
 
         <Typography
           variant="body1"
-          className="!text-base !leading-relaxed !text-gray-300 md:!text-lg"
+          className="!text-base !leading-relaxed !text-gray-300 md:!text-lg whitespace-pre-line"
         >
           {type === 'success' && !message && (
             <>

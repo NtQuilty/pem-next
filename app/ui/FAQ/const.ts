@@ -1,6 +1,7 @@
 import { ADDRESS } from '../../config';
+import type { Question } from '../../types';
 
-export const questions = [
+export const questions: Question[] = [
   {
     question: 'Можно забрать самовывозом?',
     answer: `Забрать самовывозом можно из нашего офиса, мы находимся по адресу: ${ADDRESS}.`,
@@ -45,4 +46,4 @@ export const questions = [
     question: 'Политика использования файлов cookies',
     answer: '',
   },
-] as const;
+];

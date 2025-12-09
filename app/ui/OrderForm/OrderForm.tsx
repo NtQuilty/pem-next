@@ -1,5 +1,6 @@
 'use client';
 
+import { EMAIL } from '@/app/config';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Box,
@@ -25,7 +26,7 @@ import { IoMdClose } from 'react-icons/io';
 import { IoPersonOutline } from 'react-icons/io5';
 import { MdClose } from 'react-icons/md';
 import { OrderFormType } from '../../contexts/OrderFormContext';
-import { lightTextFieldStyles } from '../../helpers';
+import { lightTextFieldStyles } from '../../styles/mui-theme';
 import { PhoneMaskCustom } from './components/PhoneMaskCustom';
 import { SuccessModal } from './components/SuccessModal';
 import { schema } from './hookform';
@@ -164,7 +165,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ open, onClose, formType })
         orderId: '',
         title: 'Ошибка отправки',
         message:
-          'Произошла ошибка при отправке заявки. Попробуйте снова или напишите нам на почту.',
+          `Произошла ошибка при отправке заявки.\nПопробуйте снова или напишите нам ${EMAIL}.`,
       });
       reset();
     }

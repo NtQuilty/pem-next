@@ -32,7 +32,7 @@ export const CookieConsent: React.FC = () => {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[50] max-w-full rounded-2xl border-t border-gray-600 bg-[#1b1e29] shadow-[0_-4px_20px_rgba(0,0,0,0.4)] md:mx-4 md:mb-[15px]">
+    <div className="fixed bottom-0 left-0 right-0 z-50 max-w-full rounded-2xl border-t border-gray-600 bg-[#1b1e29] shadow-[0_-4px_20px_rgba(0,0,0,0.4)] md:mx-4 md:mb-[15px]">
       <div className="relative mx-auto max-w-7xl p-6 md:p-8">
         <div className=" flex flex-col gap-4">
           <Typography variant="h6" component="h2" className="heading-sm mb-4">

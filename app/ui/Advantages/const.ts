@@ -1,4 +1,6 @@
-export const advantages = [
+import type { Advantage } from '../../types';
+
+export const advantages: Advantage[] = [
   {
     title: 'Масштабное производство',
     description:
@@ -23,4 +25,4 @@ export const advantages = [
     description:
       'Регулярно проводим обслуживание оборудования и контрольные тесты для контроля качества резки и гибки.',
   },
-] as const;
+];
