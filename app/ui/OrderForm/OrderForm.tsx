@@ -25,7 +25,7 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';
 import { IoPersonOutline } from 'react-icons/io5';
 import { MdClose } from 'react-icons/md';
-import { OrderFormType } from '../../contexts/OrderFormContext';
+import {type OrderFormType } from '../../types';
 import { lightTextFieldStyles } from '../../styles/mui-theme';
 import { PhoneMaskCustom } from './components/PhoneMaskCustom';
 import { SuccessModal } from './components/SuccessModal';
